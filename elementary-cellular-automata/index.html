@@ -1,0 +1,12 @@
+<canvas data-processing-sources="elementary-cellular-automata.pde"></canvas>
+
+<p>This is a simulation of Wolfram’s <a href="http://mathworld.wolfram.com/ElementaryCellularAutomaton.html">Elementary Cellular Automata</a> implemented with processing.js.
+It takes advantage of the fact that each rule can be represented as an 8-bit binary number. Here’s the code which determines the next generation:</p>
+
+``` java
+int elementary_cellular_automaton(rule_number, pattern) {
+	rule = binary(rule_number, 8);
+	return rule[7 - unbinary("00000" + pattern)];
+}
+```
+
